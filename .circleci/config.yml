@@ -21,24 +21,16 @@ jobs:
         -run: echo world
   build:
     docker:
-      - image: cimg/base:2020.01
+      -image: cimg/base:2020.01
     steps:
-      - checkout
-      - run:
-          name: "echo an env var that is part of our project"
-          command: |
-            echo $MY_ENV_VAR
+      -checkout
+      -run: echo $MY_ENV_VAR
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  # Name the workflow "welcome"
   welcome:
-    # Run the welcome/run job in its own container
     jobs:
-      - print_hello
-      - print_world:
+      -print_hello
+      -print_world:
           requires:
-            - print_hello
-  test-env-vars:
-    jobs:
-      -build
+            -print_hello
