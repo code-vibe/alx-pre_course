@@ -21,10 +21,10 @@ jobs:
         -run: echo world
   build:
     docker:
-      -image: cimg/base:2020.01
+      -image: cimg/base:2021.11
     steps:
       -checkout
-      -run:
+      -run: 
         name:"echo an env var that is part of our project"
         command:  |
           echo $MY_ENV_VAR
