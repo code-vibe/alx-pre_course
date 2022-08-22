@@ -22,9 +22,9 @@ jobs:
   build:
     docker:
       -image: cimg/base:2020.01
-    steps:
-      -checkout
-      -run: echo $MY_ENV_VAR
+      steps:
+        -checkout
+        -run: echo $MY_ENV_VAR
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
